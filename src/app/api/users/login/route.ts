@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import User from "@/models/userModel";
 import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken"
+import { error } from "console";
 
 
 connect()
@@ -12,6 +13,10 @@ export async function POST(request: NextRequest) {
         const reqBody = await request.json()
         const {email, password} = reqBody;
         console.log(reqBody)
+
+        if(!email && !password) {
+            return NextResponse.json({error: "Email and password is required"}, {status: 400})
+        }
 
         // check if user exists
         const user = await User.findOne({email})
