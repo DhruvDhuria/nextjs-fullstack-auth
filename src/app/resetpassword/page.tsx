@@ -25,7 +25,7 @@ export default function ResetPassword() {
       } else {
         setButtonDisabled(true)
       }
-    })
+    }, [email])
 
     return (
       <div className="flex flex-col font-sans items-center justify-center min-h-screen py-2">

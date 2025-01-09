@@ -49,7 +49,7 @@ export default function ChangePassword() {
       } else {
         setButonDisabled(true)
       }
-    }, [password, confirmPassword])
+    }, [password, confirmPassword, message])
 
     useEffect(() => {
         const urlToken = window.location.search.split('=')[1]
